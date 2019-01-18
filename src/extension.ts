@@ -11,12 +11,22 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(disposable);
 
-	const myName = vscode.window.showInputBox({
-		placeHolder:"enter your name"
-	});
-
-	console.log("my name is :"+myName);
+	giveMyName();
 
 }
 
 export function deactivate() {}
+
+async function giveMyName(){
+	const myName = await vscode.window.showInputBox({
+		placeHolder:"enter your name"
+	});
+
+	console.log("my name is :"+myName);
+	writeFiles("school");
+}
+
+async function writeFiles(model:string){
+	
+
+}
